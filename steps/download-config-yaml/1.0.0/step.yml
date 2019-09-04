@@ -1,0 +1,56 @@
+title: Download bitrise.yml
+summary: Download bitrise.yml via Bitrise API
+description: This step downloads bitrise.yml via Bitrise API
+website: https://github.com/wada811/bitrise-step-download-bitrise-yml
+source_code_url: https://github.com/wada811/bitrise-step-download-bitrise-yml
+support_url: https://github.com/wada811/bitrise-step-download-bitrise-yml/issues
+published_at: 2019-09-05T00:15:55.401804+09:00
+source:
+  git: https://github.com/wada811/bitrise-step-download-bitrise-yml.git
+  commit: 394242ae65eaca4ba148e20cb5c638d6e9d0e7e8
+host_os_tags:
+- osx-10.10
+- ubuntu-16.04
+type_tags:
+- utility
+toolkit:
+  bash:
+    entry_file: step.sh
+deps:
+  brew:
+  - name: git
+  - name: wget
+  apt_get:
+  - name: git
+  - name: wget
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+inputs:
+- opts:
+    description: Path to bitrise.yml in your repository
+    is_expand: true
+    is_required: true
+    summary: Path to bitrise.yml in your repository
+    title: Path to bitrise.yml in your repository
+    value_options: []
+  path_to_bitrise_yml: $PATH_TO_BITRISE_YML
+- bitrise_personal_access_token: $BITRISE_PERSONAL_ACCESS_TOKEN
+  opts:
+    description: Bitrise Personal Access Token
+    is_expand: true
+    is_required: true
+    is_sensitive: true
+    summary: Bitrise Personal Access Token
+    title: Bitrise Personal Access Token
+    value_options: []
+- app_slug: $BITRISE_APP_SLUG
+  opts:
+    description: Bitrise App Slug
+    is_expand: true
+    is_required: true
+    is_sensitive: true
+    summary: Bitrise App Slug
+    title: Bitrise App Slug
+    value_options: []
